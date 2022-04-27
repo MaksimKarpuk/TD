@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import FirstPage from "@/components/firstPage.vue";
+import FirstPage from "@/components/FirstPage";
 
 export default {
   name: "App",
