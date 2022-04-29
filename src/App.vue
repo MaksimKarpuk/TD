@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <FirstPage />
+    <ToDo />
   </div>
 </template>
 
 <script>
-import FirstPage from "@/components/FirstPage";
+import ToDo from "@/components/ToDo";
 
 export default {
   name: "App",
   components: {
-    FirstPage,
+    ToDo,
   },
 };
 </script>

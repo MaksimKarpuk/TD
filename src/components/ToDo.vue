@@ -45,7 +45,11 @@
           </div>
           <button class="boaderMainContentButton"></button>
         </div>
-        <div class="boaderMainContentAdd">Add a new task</div>
+        <input
+          type="text"
+          class="boaderMainContentAdd"
+          placeholder="Add a new task"
+        />
       </div>
       <div class="boaderFooter">
         <div class="boaderFooterText">1/3 left</div>
@@ -73,10 +77,9 @@
 .content {
   position: relative;
   z-index: 0;
-  max-width: 74rem;
-  height: 40rem;
+  max-width: 100vw;
+  height: 100vh;
   background: linear-gradient(104.11deg, #ff7e5f 14.52%, #feb567 87.26%);
-  margin: 0 auto;
   .folder {
     &Image {
       position: absolute;
@@ -94,14 +97,12 @@
     max-width: 33.75rem;
     left: 20rem;
     top: 6.15rem;
-    background: #fff4e9;
+    background: $boaderWhite;
     border: 0.0625rem solid $lightOrange;
     box-sizing: border-box;
-    box-shadow: 0 0.5rem 2.1rem 0.3rem #fe9262;
+    box-shadow: 0 0.5rem 2.1rem 0.3rem $boaderOrange;
     &Header {
       text-align: center;
-      font-family: "Open Sans";
-      font-style: normal;
       font-weight: 600;
       font-size: 1.25rem;
       line-height: 1.75rem;
@@ -120,8 +121,6 @@
         .boaderMainContentInfo {
           &Text {
             font-family: "Inter";
-            font-style: normal;
-            font-weight: 400;
             font-size: 1.25rem;
             line-height: 1.75rem;
             color: $brown;
@@ -185,17 +184,28 @@
         }
       }
       .boaderMainContentAdd {
-        margin: 1.85rem;
+        max-width: 30rem;
+        width: 100%;
+        margin: 0.925rem 1.85rem 1.85rem 1.85rem;
         padding: 1rem;
-        background: #ffecd8;
+        background: $addWhite;
         border: 0.0625rem dashed $lightOrange;
         box-sizing: border-box;
-        border-radius: 10px;
+        border-radius: 0.7rem;
         text-align: center;
         font-family: "Inter";
         font-size: 1.25rem;
         line-height: 1.75rem;
+        color: $brown;
+      }
+      .boaderMainContentAdd::placeholder {
         color: $lightOrange;
+      }
+      .boaderMainContentAdd:focus {
+        outline: 0;
+        border: none;
+        background: $whiteOrange;
+        border-radius: 0.75rem;
       }
     }
     .boaderFooter {
@@ -205,7 +215,6 @@
       align-items: center;
       background: $lightOrange;
       &Text {
-        font-family: "Open Sans";
         font-weight: 600;
         font-size: 1.25rem;
         line-height: 1.75rem;
@@ -221,7 +230,6 @@
             display: none;
           }
           .boaderFooterOptionsFormLabel {
-            font-family: "Open Sans";
             font-weight: 600;
             font-size: 1.25rem;
             line-height: 1.75rem;
