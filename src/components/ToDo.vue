@@ -1,10 +1,15 @@
 <template>
   <div class="content">
-    <div class="folder">
-      <img src="../assets/images/folder.png" class="folderImage" />
-    </div>
     <div class="boader">
-      <div class="boaderHeader">to do list</div>
+      <!-- <div class="folder">
+        <img
+          src="../assets/images/folder.png"
+          class="folderImage"
+          width="400"
+          height="512"
+        />
+      </div> -->
+      <div class="boaderHeader">To Do List</div>
       <div class="boaderMain">
         <div class="boaderMainContent">
           <div class="boaderMainContentInfo">
@@ -45,25 +50,27 @@
           </div>
           <button class="boaderMainContentButton"></button>
         </div>
-        <input
-          type="text"
-          class="boaderMainContentAdd"
-          placeholder="Add a new task"
-        />
+        <div class="input">
+          <input
+            type="text"
+            class="boaderMainContentAdd"
+            placeholder="Add a new task"
+          />
+        </div>
       </div>
       <div class="boaderFooter">
         <div class="boaderFooterText">1/3 left</div>
         <div class="boaderFooterOptions">
           <label class="boaderFooterOptionsForm">
-            <input type="radio" class="boaderFooterOptionsFormRadio" checked />
+            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" checked />
             <span class="boaderFooterOptionsFormLabel">All</span>
           </label>
           <label class="boaderFooterOptionsForm">
-            <input type="radio" class="boaderFooterOptionsFormRadio" />
+            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" />
             <span class="boaderFooterOptionsFormLabel">Active</span>
           </label>
           <label class="boaderFooterOptionsForm">
-            <input type="radio" class="boaderFooterOptionsFormRadio" />
+            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" />
             <span class="boaderFooterOptionsFormLabel">Completed</span>
           </label>
         </div>
@@ -75,50 +82,53 @@
 <style lang="scss">
 @import "../assets/styles/style.scss";
 .content {
-  position: relative;
-  z-index: 0;
-  max-width: 100vw;
   height: 100vh;
   background: linear-gradient(104.11deg, #ff7e5f 14.52%, #feb567 87.26%);
-  .folder {
-    &Image {
-      position: absolute;
-      left: 37.5rem;
-      top: 4rem;
-      z-index: 1;
-      max-width: 25rem;
-      max-height: 32rem;
-      padding: 0 3.5rem;
-    }
-  }
   .boader {
     position: relative;
     z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     max-width: 33.75rem;
-    left: 20rem;
-    top: 6.15rem;
-    background: $boaderWhite;
+    background-color: $boaderWhite;
     border: 0.0625rem solid $lightOrange;
     box-sizing: border-box;
     box-shadow: 0 0.5rem 2.1rem 0.3rem $boaderOrange;
-    &Header {
+    // .folder {
+    //   position: absolute;
+    //   z-index: 1;
+    //   right: -15rem;
+    //   top: -4rem;
+    //   max-width: 25rem;
+    //   max-height: 32rem;
+    //   padding: 0 3.5rem;
+    //   img {
+    //     width:100%;
+    //     height: 100%;
+    //   }
+    // }
+    .boaderHeader {
       text-align: center;
       font-weight: 600;
       font-size: 1.25rem;
       line-height: 1.75rem;
       color: $brown;
       background: $lightOrange;
+      padding: 1rem 0;
     }
-    &Main {
+    .boaderMain {
+      padding: 2rem;
       &Content {
-        margin: 1.85rem 1.85rem 0.925rem 1.85rem;
+        margin: 0 0 1rem 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
         background: $whiteOrange;
         border-radius: 0.75rem;
-        .boaderMainContentInfo {
+
+        &Info {
           &Text {
             font-family: "Inter";
             font-size: 1.25rem;
@@ -129,19 +139,20 @@
             display: flex;
             gap: 1.3rem;
             align-items: center;
-            .boaderMainContentInfoFormCheckbox {
+            &Checkbox {
               width: 1.4rem;
               height: 1.4rem;
               display: none;
             }
-            .boaderMainContentInfoFormCheckboxHidden {
+            &CheckboxHidden {
               width: 1.4rem;
               height: 1.4rem;
               border: 0.0625rem solid $orange;
               border-radius: 0.35rem;
               position: relative;
+              cursor: pointer;
             }
-            .boaderMainContentInfoFormCheckboxHidden::before {
+            &CheckboxHidden::before {
               content: "\2713";
               display: flex;
               justify-content: center;
@@ -163,7 +174,7 @@
             }
           }
         }
-        .boaderMainContentButton {
+        &Button {
           width: 1.4rem;
           height: 1.4rem;
           border: 0.0625rem solid $lightOrange;
@@ -171,22 +182,21 @@
           color: $lightOrange;
           text-align: center;
           background: $whiteOrange;
+          cursor: pointer;
         }
-        .boaderMainContentButton::before {
+        &Button::before {
           content: "\2716";
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        .boaderMainContentButton:focus {
+        &Button:focus {
           color: $orange;
           border: 0.0625rem solid $orange;
         }
       }
-      .boaderMainContentAdd {
-        max-width: 30rem;
+      &ContentAdd {
         width: 100%;
-        margin: 0.925rem 1.85rem 1.85rem 1.85rem;
         padding: 1rem;
         background: $addWhite;
         border: 0.0625rem dashed $lightOrange;
@@ -198,10 +208,10 @@
         line-height: 1.75rem;
         color: $brown;
       }
-      .boaderMainContentAdd::placeholder {
+      &ContentAdd::placeholder {
         color: $lightOrange;
       }
-      .boaderMainContentAdd:focus {
+      &ContentAdd:focus {
         outline: 0;
         border: none;
         background: $whiteOrange;
@@ -220,16 +230,16 @@
         line-height: 1.75rem;
         color: $brownRGBA;
       }
-      .boaderFooterOptions {
+      &Options {
         display: flex;
         gap: 1rem;
-        .boaderFooterOptionsForm {
-          .boaderFooterOptionsFormRadio {
+        &Form {
+          &Radio {
             width: 1rem;
             height: 1rem;
             display: none;
           }
-          .boaderFooterOptionsFormLabel {
+          &Label {
             font-weight: 600;
             font-size: 1.25rem;
             line-height: 1.75rem;
@@ -237,6 +247,7 @@
             border: none;
             border-radius: 0.35rem;
             padding: 0.35rem;
+            cursor: pointer;
           }
           .boaderFooterOptionsFormRadio:checked
             ~ .boaderFooterOptionsFormLabel {
