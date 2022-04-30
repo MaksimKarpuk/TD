@@ -1,6 +1,11 @@
 <template>
   <div class="content">
     <div class="boader">
+      <div>
+        <Header />
+        <Main />
+        <Footer />
+      </div>
       <!-- <div class="folder">
         <img
           src="../assets/images/folder.png"
@@ -62,15 +67,28 @@
         <div class="boaderFooterText">1/3 left</div>
         <div class="boaderFooterOptions">
           <label class="boaderFooterOptionsForm">
-            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" checked />
+            <input
+              type="radio"
+              name="radio"
+              class="boaderFooterOptionsFormRadio"
+              checked
+            />
             <span class="boaderFooterOptionsFormLabel">All</span>
           </label>
           <label class="boaderFooterOptionsForm">
-            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" />
+            <input
+              type="radio"
+              name="radio"
+              class="boaderFooterOptionsFormRadio"
+            />
             <span class="boaderFooterOptionsFormLabel">Active</span>
           </label>
           <label class="boaderFooterOptionsForm">
-            <input type="radio" name="radio" class="boaderFooterOptionsFormRadio" />
+            <input
+              type="radio"
+              name="radio"
+              class="boaderFooterOptionsFormRadio"
+            />
             <span class="boaderFooterOptionsFormLabel">Completed</span>
           </label>
         </div>
@@ -78,7 +96,18 @@
     </div>
   </div>
 </template>
-
+<script>
+import Header from "@/components/organisms/Header";
+import Main from "@/components/organisms/Main";
+import Footer from "@/components/organisms/Footer";
+export default {
+  components: {
+    Header,
+    Main,
+    Footer,
+  },
+}
+</script>
 <style lang="scss">
 @import "../assets/styles/style.scss";
 .content {
