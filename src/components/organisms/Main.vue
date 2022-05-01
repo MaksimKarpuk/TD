@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.main">
-    <MainTask />
+    <MainTask
+      v-for="task in tasks"
+      :key="task.id"
+      :text="task.text"
+      :isChecked="task.isChecked"
+    />
     <div>
       <input type="text" :class="$style.input" placeholder="Add a new task" />
     </div>
@@ -12,6 +17,27 @@ import MainTask from "@/components/molecules/MainTask";
 export default {
   components: {
     MainTask,
+  },
+  data() {
+    return {
+      tasks: [
+        {
+          id: "1",
+          text: "Task 1",
+          isChecked: false,
+        },
+        {
+          id: "2",
+          text: "Task 2",
+          isChecked: true,
+        },
+        {
+          id: "3",
+          text: "Task 3",
+          isChecked: false,
+        },
+      ],
+    };
   },
 };
 </script>

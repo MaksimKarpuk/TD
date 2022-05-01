@@ -1,10 +1,19 @@
 <template>
   <label :class="$style.task">
-    <input type="checkbox" :class="$style.checkbox" />
+    <input type="checkbox" :class="$style.checkbox" :checked="isChecked"/>
     <span :class="$style.checkboxHidden"></span>
-    <span :class="$style.text">Task 1</span>
+    <span :class="$style.text">{{text}}</span>
   </label>
 </template>
+
+<script>
+export default {
+  props: {
+    text: String,
+    isChecked: Boolean,
+  }
+}
+</script>
 
 <style lang="scss" module>
 @import "@/assets/styles/style";

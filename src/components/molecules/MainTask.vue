@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.task">
-    <MainCheckbox />
+    <MainCheckbox :text="text" :isChecked="isChecked"/>
     <MainButton />
   </div>
 </template>
@@ -13,6 +13,10 @@ export default {
     MainCheckbox,
     MainButton,
   },
+  props: {
+    text: String,
+    isChecked: Boolean,
+  }
 };
 </script>
 
