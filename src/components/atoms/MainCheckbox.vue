@@ -18,6 +18,10 @@ export default {
 <style lang="scss" module>
 @import "@/assets/styles/style";
 .task {
+  .text {
+    color: $brown;
+    font-size: 1.25rem;
+  }
   display: flex;
   gap: 1.3rem;
   align-items: center;

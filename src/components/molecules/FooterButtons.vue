@@ -16,7 +16,7 @@ export default {
   }
 };
 </script>
-//  <style lang='scss' module>
+<style lang='scss' module>
  @import '@/assets/styles/style';
  .tabs{
    display: flex;
