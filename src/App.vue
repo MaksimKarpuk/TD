@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ToDo from "@/components/ToDo";
+import ToDo from "@/components/pages/ToDo";
 
 export default {
   name: "App",
