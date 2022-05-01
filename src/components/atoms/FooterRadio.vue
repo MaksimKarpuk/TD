@@ -1,17 +1,22 @@
 <template>
   <label :class="$style.tab">
-    <input type="radio" name="radio" :class="$style.radio" :checked="isChecked" />
-    <span :class="$style.text">{{text}}</span>
+    <input
+      type="radio"
+      name="radio"
+      :class="$style.radio"
+      :checked="isChecked"
+    />
+    <span :class="$style.text">{{ text }}</span>
   </label>
 </template>
 
 <script>
 export default {
-   props: {
+  props: {
     text: String,
     isChecked: Boolean,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" module>

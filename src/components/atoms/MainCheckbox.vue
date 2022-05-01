@@ -1,8 +1,8 @@
 <template>
   <label :class="$style.task">
-    <input type="checkbox" :class="$style.checkbox" :checked="isChecked"/>
+    <input type="checkbox" :class="$style.checkbox" :checked="isChecked" />
     <span :class="$style.checkboxHidden"></span>
-    <span :class="$style.text">{{text}}</span>
+    <span :class="$style.text">{{ text }}</span>
   </label>
 </template>
 
@@ -11,8 +11,8 @@ export default {
   props: {
     text: String,
     isChecked: Boolean,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" module>
