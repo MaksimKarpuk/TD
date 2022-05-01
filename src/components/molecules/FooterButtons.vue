@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.tabs">
-  <FooterRadio />
+  <FooterRadio :text="text" :isChecked="isChecked" />
   </div>
 </template>
 
@@ -10,9 +10,13 @@ export default {
   components: {
     FooterRadio,
   },
+   props: {
+    text: String,
+    isChecked: Boolean,
+  }
 };
 </script>
- <style lang='scss' module>
+//  <style lang='scss' module>
  @import '@/assets/styles/style';
  .tabs{
    display: flex;
