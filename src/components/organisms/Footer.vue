@@ -3,7 +3,7 @@
     <FooterText />
     <div :class="$style.tabs">
       <FooterButtons
-        v-for="tab in tabs"
+        v-for="tab in getFooterTabs"
         :key="tab.id"
         :text="tab.text"
         :isChecked="tab.isChecked"
@@ -15,31 +15,12 @@
 <script>
 import FooterButtons from "@/components/molecules/FooterButtons";
 import FooterText from "@/components/atoms/FooterText";
+import { mapGetters } from "vuex";
 export default {
+  computed: mapGetters(["getFooterTabs"]),
   components: {
     FooterButtons,
     FooterText,
-  },
-  data() {
-    return {
-      tabs: [
-        {
-          id: "1",
-          text: "All",
-          isChecked: true,
-        },
-        {
-          id: "2",
-          text: "Active",
-          isChecked: false,
-        },
-        {
-          id: "3",
-          text: "Completed",
-          isChecked: false,
-        },
-      ],
-    };
   },
 };
 </script>
