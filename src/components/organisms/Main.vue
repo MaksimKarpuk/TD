@@ -1,43 +1,48 @@
 <template>
   <div :class="$style.main">
+    <div v-if="getMainTasksLength>0">
     <MainTask
-      v-for="task in tasks"
+      v-for="task in getMainTasks"
       :key="task.id"
       :text="task.text"
       :isChecked="task.isChecked"
     />
+    </div>
+    <div :class="$style.hidden" v-else>Заданий нет</div>
     <div>
-      <input type="text" :class="$style.input" placeholder="Add a new task" />
+      <form @submit.prevent="submit">
+        <input
+          type="text"
+          :class="$style.input"
+          placeholder="Add a new task"
+          v-model="text"
+        />
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 import MainTask from "@/components/molecules/MainTask";
+import { mapGetters, mapMutations } from "vuex";
 export default {
+  computed: mapGetters(["getMainTasks", "getMainTasksLength"]),
   components: {
     MainTask,
   },
   data() {
     return {
-      tasks: [
-        {
-          id: "1",
-          text: "Task 1",
-          isChecked: false,
-        },
-        {
-          id: "2",
-          text: "Task 2",
-          isChecked: true,
-        },
-        {
-          id: "3",
-          text: "Task 3",
-          isChecked: false,
-        },
-      ],
+      text: "",
     };
+  },
+  methods: {
+    ...mapMutations(["addTask"]),
+    submit() {
+      if (this.text) {
+        this.addTask(this.text);
+        this.text = "";
+      }
+    },
   },
 };
 </script>
@@ -46,6 +51,12 @@ export default {
 @import "@/assets/styles/style";
 .main {
   padding: 2rem;
+  .hidden {
+    color: $brown;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 0 2rem 0;
+  }
   .input {
     width: 100%;
     padding: 1rem;

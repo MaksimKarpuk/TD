@@ -14,6 +14,7 @@ export default {
     MainButton,
   },
   props: {
+    id: String,
     text: String,
     isChecked: Boolean,
   },

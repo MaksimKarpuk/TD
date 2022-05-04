@@ -1,9 +1,21 @@
 <template>
-  <button :class="$style.button"></button>
+  <button :class="$style.button" @click="remove"></button>
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapMutations} from "vuex";
+export default {
+  computed: mapGetters(["getMainTasks"]),
+  props: {
+    id: String,
+  },
+  methods: {
+    ...mapMutations(["removeTask"]),
+    remove() {
+      this.removeTask(this.id);
+  },
+},
+};
 </script>
 
 <style lang="scss" module>
