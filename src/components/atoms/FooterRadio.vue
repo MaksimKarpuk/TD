@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 export default {
+  computed: mapGetters (["getTabs"]),
   props: {
     id: String,
     text: String,
@@ -22,8 +23,7 @@ export default {
   methods: {
     ...mapMutations(["changeRadioValue"]),
     changeRadio() {
-      this.changeRadioValue(this.id);
-      console.log(this.isChecked);
+      this.changeRadioValue(this.text);
     },
   },
 };

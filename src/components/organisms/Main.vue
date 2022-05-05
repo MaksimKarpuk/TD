@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.main">
-    <div v-if="getMainTasks.length > 0">
+    <div v-if="getFilteredTasks.length > 0">
       <MainTask
-        v-for="task in getMainTasks"
+        v-for="task in getFilteredTasks"
         :key="task.id"
         :text="task.text"
         :isChecked="task.isChecked"
@@ -27,7 +27,7 @@
 import MainTask from "@/components/molecules/MainTask";
 import { mapGetters, mapMutations } from "vuex";
 export default {
-  computed: mapGetters(["getMainTasks"]),
+  computed: mapGetters(["getMainTasks", "getFilteredTasks"]),
   components: {
     MainTask,
   },

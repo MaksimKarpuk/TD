@@ -40,6 +40,7 @@ export default new Vuex.Store({
         isChecked: false,
       },
     ],
+    filter: "All",
   },
   getters: {
     getFooterTabs(state) {
@@ -50,6 +51,16 @@ export default new Vuex.Store({
     },
     getActiveTasks(state) {
       return state.tasks.filter((task) => task.isChecked === false).length;
+    },
+    getFilteredTasks(state) {
+      switch (state.filter) {
+        case "Active":
+          return state.tasks.filter((task) => task.isChecked === false);
+        case "Completed":
+          return state.tasks.filter((task) => task.isChecked === true);
+        default:
+          return state.tasks;
+      }
     },
   },
   mutations: {
@@ -67,21 +78,16 @@ export default new Vuex.Store({
       state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isChecked: !task.isChecked } : task
       );
-      // for (let i = 0; i < state.tasks.length - 1; i++) {
-      //   if (state.tasks[i].id === id) {
-      //     state.tasks[i].isChecked = !state.tasks[i].isChecked;
-      //   }
-      // }
-      // console.log(state.tasks);
     },
-    changeRadioValue (state, id) {
+    changeRadioValue(state, text) {
       state.tabs = state.tabs.map((tab) =>
-        tab.id === id ? { ...tab, isChecked: true } : { ...tab, isChecked: false }
+        tab.text === text
+          ? { ...tab, isChecked: true }
+          : { ...tab, isChecked: false }
       );
-      console.log(state.tabs);
-  },
+      state.filter = text;
+    },
   },
   actions: {},
   modules: {},
-
 });
