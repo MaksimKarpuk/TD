@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.task">
-    <MainCheckbox :text="text" :isChecked="isChecked" />
-    <MainButton />
+    <MainCheckbox :text="text" :isChecked="isChecked" :id="id" />
+    <MainButton :id="id" />
   </div>
 </template>
 

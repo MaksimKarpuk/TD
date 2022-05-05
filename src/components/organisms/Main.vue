@@ -1,14 +1,15 @@
 <template>
   <div :class="$style.main">
-    <div v-if="getMainTasksLength>0">
-    <MainTask
-      v-for="task in getMainTasks"
-      :key="task.id"
-      :text="task.text"
-      :isChecked="task.isChecked"
-    />
+    <div v-if="getMainTasks.length > 0">
+      <MainTask
+        v-for="task in getMainTasks"
+        :key="task.id"
+        :text="task.text"
+        :isChecked="task.isChecked"
+        :id="task.id"
+      />
     </div>
-    <div :class="$style.hidden" v-else>Заданий нет</div>
+    <div :class="$style.hidden" v-else>Tasks are over</div>
     <div>
       <form @submit.prevent="submit">
         <input
@@ -26,7 +27,7 @@
 import MainTask from "@/components/molecules/MainTask";
 import { mapGetters, mapMutations } from "vuex";
 export default {
-  computed: mapGetters(["getMainTasks", "getMainTasksLength"]),
+  computed: mapGetters(["getMainTasks"]),
   components: {
     MainTask,
   },

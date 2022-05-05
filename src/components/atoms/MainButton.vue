@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations} from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   computed: mapGetters(["getMainTasks"]),
   props: {
@@ -13,8 +13,8 @@ export default {
     ...mapMutations(["removeTask"]),
     remove() {
       this.removeTask(this.id);
+    },
   },
-},
 };
 </script>
 

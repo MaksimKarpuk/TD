@@ -48,8 +48,8 @@ export default new Vuex.Store({
     getMainTasks(state) {
       return state.tasks;
     },
-    getMainTasksLength(state) {
-      return state.tasks.length;
+    getActiveTasks(state) {
+      return state.tasks.filter((task) => task.isChecked === false).length;
     },
   },
   mutations: {
@@ -60,8 +60,19 @@ export default new Vuex.Store({
         isChecked: false,
       });
     },
-    removeTask (state,id) {
-      state.tasks.splice(id,1);
+    removeTask(state, id) {
+      state.tasks = state.tasks.filter((task) => task.id !== id);
+    },
+    changeCheckboxValue(state, id) {
+      state.tasks = state.tasks.map((task) =>
+        task.id === id ? { ...task, isChecked: !task.isChecked } : task
+      );
+      // for (let i = 0; i < state.tasks.length - 1; i++) {
+      //   if (state.tasks[i].id === id) {
+      //     state.tasks[i].isChecked = !state.tasks[i].isChecked;
+      //   }
+      // }
+      // console.log(state.tasks);
     },
   },
   actions: {},
