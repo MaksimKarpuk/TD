@@ -76,7 +76,7 @@ export default new Vuex.Store({
     },
     changeRadioValue (state, id) {
       state.tabs = state.tabs.map((tab) =>
-        tab.id === id ? { ...tab, isChecked: !tab.isChecked } : tab
+        tab.id === id ? { ...tab, isChecked: true } : { ...tab, isChecked: false }
       );
       console.log(state.tabs);
   },

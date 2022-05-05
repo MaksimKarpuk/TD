@@ -4,6 +4,7 @@
       type="radio"
       name="radio"
       :class="$style.radio"
+      :checked="isChecked"
       @click="changeRadio"
     />
     <span :class="$style.text">{{ text }}</span>
