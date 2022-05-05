@@ -1,7 +1,15 @@
 <template>
-  <div :class="$style.text">1/3 left</div>
+  <div :class="$style.text">
+    {{ getActiveTasks }}/{{ getMainTasks.length }} left
+  </div>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: mapGetters(["getActiveTasks", "getMainTasks"]),
+};
+</script>
 <style lang="scss" module>
 @import "@/assets/styles/style";
 .text {

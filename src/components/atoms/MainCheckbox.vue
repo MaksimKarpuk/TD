@@ -1,16 +1,29 @@
 <template>
   <label :class="$style.task">
-    <input type="checkbox" :class="$style.checkbox" :checked="isChecked" />
+    <input
+      type="checkbox"
+      :class="$style.checkbox"
+      :checked="isChecked"
+      @click="change"
+    />
     <span :class="$style.checkboxHidden"></span>
     <span :class="$style.text">{{ text }}</span>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   props: {
+    id: String,
     text: String,
     isChecked: Boolean,
+  },
+  methods: {
+    ...mapMutations(["changeCheckboxValue"]),
+    change() {
+      this.changeCheckboxValue(this.id);
+    },
   },
 };
 </script>

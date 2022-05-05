@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FooterRadio :text="text" :isChecked="isChecked" />
+    <FooterRadio :text="text" :isChecked="isChecked" :id="id" />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
     FooterRadio,
   },
   props: {
+    id: String,
     text: String,
     isChecked: Boolean,
   },
