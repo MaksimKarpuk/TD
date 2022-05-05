@@ -5,6 +5,7 @@
       <FooterButtons
         v-for="tab in getFooterTabs"
         :key="tab.id"
+        :id="tab.id"
         :text="tab.text"
         :isChecked="tab.isChecked"
       />

@@ -74,7 +74,14 @@ export default new Vuex.Store({
       // }
       // console.log(state.tasks);
     },
+    changeRadioValue (state, id) {
+      state.tabs = state.tabs.map((tab) =>
+        tab.id === id ? { ...tab, isChecked: !tab.isChecked } : tab
+      );
+      console.log(state.tabs);
+  },
   },
   actions: {},
   modules: {},
+
 });

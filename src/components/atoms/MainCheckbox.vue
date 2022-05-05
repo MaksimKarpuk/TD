@@ -1,6 +1,11 @@
 <template>
   <label :class="$style.task">
-    <input type="checkbox" :class="$style.checkbox" :checked="isChecked" @click="change" />
+    <input
+      type="checkbox"
+      :class="$style.checkbox"
+      :checked="isChecked"
+      @click="change"
+    />
     <span :class="$style.checkboxHidden"></span>
     <span :class="$style.text">{{ text }}</span>
   </label>

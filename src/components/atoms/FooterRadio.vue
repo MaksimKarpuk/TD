@@ -4,17 +4,26 @@
       type="radio"
       name="radio"
       :class="$style.radio"
-      :checked="isChecked"
+      @click="changeRadio"
     />
     <span :class="$style.text">{{ text }}</span>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   props: {
+    id: String,
     text: String,
     isChecked: Boolean,
+  },
+  methods: {
+    ...mapMutations(["changeRadioValue"]),
+    changeRadio() {
+      this.changeRadioValue(this.id);
+      console.log(this.isChecked);
+    },
   },
 };
 </script>
