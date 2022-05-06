@@ -36,6 +36,9 @@ export default {
       text: "",
     };
   },
+  mounted() {
+    this.$store.dispatch("getFromStorage");
+  },
   methods: {
     ...mapMutations(["addTask"]),
     submit() {
