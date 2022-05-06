@@ -25,7 +25,7 @@
 
 <script>
 import MainTask from "@/components/molecules/MainTask";
-import { mapGetters, mapMutations} from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   computed: mapGetters(["getMainTasks", "getFilteredTasks"]),
   components: {
@@ -36,8 +36,8 @@ export default {
       text: "",
     };
   },
-  mounted(){
-     this.$store.dispatch("getFromStorage")
+  mounted() {
+    this.$store.dispatch("getFromStorage");
   },
   methods: {
     ...mapMutations(["addTask"]),
