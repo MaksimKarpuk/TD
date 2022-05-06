@@ -70,14 +70,17 @@ export default new Vuex.Store({
         text: newText,
         isChecked: false,
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     removeTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     changeCheckboxValue(state, id) {
       state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isChecked: !task.isChecked } : task
       );
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     changeRadioValue(state, text) {
       state.tabs = state.tabs.map((tab) =>
@@ -87,7 +90,15 @@ export default new Vuex.Store({
       );
       state.filter = text;
     },
+    getFromStorage(state) {
+      state.tasks = JSON.parse(localStorage.getItem("tasks")) || new Array();
+      console.log(localStorage.getItem("tasks"));
+    },
   },
-  actions: {},
+  actions: {
+    getFromStorage(ctx) {
+      ctx.commit("getFromStorage");
+    },
+  },
   modules: {},
 });
