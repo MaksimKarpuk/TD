@@ -27,7 +27,7 @@
 import MainTask from "@/components/molecules/MainTask";
 import { mapGetters, mapMutations } from "vuex";
 export default {
-  computed: mapGetters(["getMainTasks", "getFilteredTasks"]),
+  computed: mapGetters(["getFilteredTasks"]),
   components: {
     MainTask,
   },
@@ -42,10 +42,8 @@ export default {
   methods: {
     ...mapMutations(["addTask"]),
     submit() {
-      if (this.text) {
-        this.addTask(this.text);
-        this.text = "";
-      }
+      this.addTask(this.text);
+      this.text = "";
     },
   },
 };

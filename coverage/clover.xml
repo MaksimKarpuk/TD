@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1652113207176" clover="3.2.0">
+  <project timestamp="1652113207177" name="All files">
+    <metrics statements="9" coveredstatements="9" conditionals="3" coveredconditionals="1" methods="9" coveredmethods="7" elements="21" coveredelements="17" complexity="0" loc="9" ncloc="9" packages="3" files="9" classes="9"/>
+    <package name="atoms">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="FooterRadio.vue" path="E:\Front\project\TD\TD\src\components\atoms\FooterRadio.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+      <file name="FooterText.vue" path="E:\Front\project\TD\TD\src\components\atoms\FooterText.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+      <file name="MainButton.vue" path="E:\Front\project\TD\TD\src\components\atoms\MainButton.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+      <file name="MainCheckbox.vue" path="E:\Front\project\TD\TD\src\components\atoms\MainCheckbox.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+      <file name="example.js" path="E:\Front\project\TD\TD\src\components\atoms\example.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="molecules">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="FooterButtons.vue" path="E:\Front\project\TD\TD\src\components\molecules\FooterButtons.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="MainTask.vue" path="E:\Front\project\TD\TD\src\components\molecules\MainTask.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="organisms">
+      <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="Footer.vue" path="E:\Front\project\TD\TD\src\components\organisms\Footer.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+      </file>
+      <file name="Main.vue" path="E:\Front\project\TD\TD\src\components\organisms\Main.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="8" type="cond" truecount="1" falsecount="2"/>
+      </file>
+    </package>
+  </project>
+</coverage>
