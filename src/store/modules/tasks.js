@@ -18,23 +18,7 @@ export default {
         isChecked: false,
       },
     ],
-    tasks: [
-      {
-        id: uuidv4(),
-        text: "Task 1",
-        isChecked: false,
-      },
-      {
-        id: uuidv4(),
-        text: "Task 2",
-        isChecked: true,
-      },
-      {
-        id: uuidv4(),
-        text: "Task 3",
-        isChecked: false,
-      },
-    ],
+    tasks: [],
     filter: "All",
   },
   getters: {
@@ -60,12 +44,14 @@ export default {
   },
   mutations: {
     addTask(state, newText) {
-      state.tasks.push({
-        id: uuidv4(),
-        text: newText,
-        isChecked: false,
-      });
-      localStorage.setItem("tasks", JSON.stringify(state.tasks));
+      if (newText) {
+        state.tasks.push({
+          id: uuidv4(),
+          text: newText,
+          isChecked: false,
+        });
+        localStorage.setItem("tasks", JSON.stringify(state.tasks));
+      }
     },
     removeTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
