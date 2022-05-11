@@ -18,7 +18,9 @@ export default {
         isChecked: false,
       },
     ],
-    tasks: [{ id: "1", text: "newText", isChecked: false }],
+    tasks: [
+      
+    ],
     filter: "All",
   },
   actions: vuex.actions,
