@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.main">
-    <div v-if="getFilteredTasks.length > 0">
+    <div v-if="getFilteredTasks.length > 0" data-tasks-e2e>
       <MainTask
         v-for="task in getFilteredTasks"
         :key="task.id"
@@ -11,7 +11,7 @@
     </div>
     <div :class="$style.hidden" v-else>Tasks are over</div>
     <div>
-      <form @submit.prevent="submit">
+      <form @submit.prevent="submit" data-input-e2e>
         <input
           type="text"
           :class="$style.input"

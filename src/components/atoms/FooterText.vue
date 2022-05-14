@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.text">
+  <div :class="$style.text" data-counter-e2e>
     {{ getActiveTasks }}/{{ getMainTasks.length }} left
   </div>
 </template>

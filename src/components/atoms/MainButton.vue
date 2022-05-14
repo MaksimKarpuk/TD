@@ -1,5 +1,5 @@
 <template>
-  <button :class="$style.button" @click="remove"></button>
+  <button :class="$style.button" @click="remove" data-remove-e2e></button>
 </template>
 
 <script>
