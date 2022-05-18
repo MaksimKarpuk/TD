@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.main">
-    <div v-if="getFilteredTasks.length > 0" @click="isClick!=isClick" :class="{[$style.active]: isClick}"  data-tasks-e2e>
+    <div v-if="getFilteredTasks.length > 0" data-tasks-e2e>
       <MainTask
         v-for="task in getFilteredTasks"
         :key="task.id"
@@ -37,7 +37,6 @@ export default {
   data() {
     return {
       text: "",
-      isClick: true,
     };
   },
   mounted() {
@@ -86,8 +85,5 @@ export default {
       border-radius: 0.75rem;
     }
   }
-}
-.active {
-  border-radius: 0.75rem 0.75rem 0 0;
 }
 </style>

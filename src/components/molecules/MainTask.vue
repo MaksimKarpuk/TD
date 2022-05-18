@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="$style.task" @click="open">
+    <div :class="[$style.task, { [$style.active]: isShow }]" @click="open">
       <MainCheckbox
         :text="text"
         :isChecked="isChecked"
@@ -10,7 +10,7 @@
       <MainButton :id="id" />
     </div>
     <div v-show="isShow" :class="$style.subtasks">
-      <div v-if="subTasks.length > 0">
+      <div>
         <div
           v-for="subtask in subTasks"
           :key="subtask.id"
@@ -25,7 +25,6 @@
           <SubtaskButton :id="subtask.id" :mainId="id" />
         </div>
       </div>
-      <div :class="$style.hidden" v-else>Subtasks are over</div>
       <div>
         <form @submit.prevent="subSubmit">
           <input
@@ -104,7 +103,9 @@ export default {
     color: $brown;
     font-size: 1.3rem;
     text-align: center;
-    margin: 1rem 0;
+    padding: 1rem 0;
+    background: $subtaskBg;
+    border: 0.0625rem solid $whiteOrange;
   }
 }
 .input {
@@ -117,9 +118,8 @@ export default {
   box-sizing: border-box;
   text-align: center;
   font-family: "Inter";
-  font-size: 1.25rem;
-  line-height: 1.75rem;
   color: $brown;
+  font-size: 1.25rem;
 
   &::placeholder {
     color: $lightOrange;
@@ -127,7 +127,9 @@ export default {
   &:focus {
     outline: 0;
     border: none;
-    background: $whiteOrange;
   }
+}
+.active {
+  border-radius: 0.75rem 0.75rem 0 0;
 }
 </style>
