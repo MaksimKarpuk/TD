@@ -7,11 +7,12 @@ import { mapMutations } from "vuex";
 export default {
   props: {
     id: String,
+    mainId: String,
   },
   methods: {
-    ...mapMutations(["removeTask"]),
+    ...mapMutations(["removeSubtask"]),
     remove() {
-      this.removeTask(this.id);
+      this.removeSubtask({id:this.id, mainId:this.mainId});
     },
   },
 };

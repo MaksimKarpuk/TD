@@ -1,12 +1,15 @@
 <template>
   <div :class="$style.main">
-    <div v-if="getFilteredTasks.length > 0" data-tasks-e2e>
+    <div v-if="getFilteredTasks.length > 0" @click="isClick!=isClick" :class="{[$style.active]: isClick}"  data-tasks-e2e>
       <MainTask
         v-for="task in getFilteredTasks"
         :key="task.id"
         :text="task.text"
         :isChecked="task.isChecked"
         :id="task.id"
+        :subTasks="task.subTasks"
+        :isShow="task.isShow"
+        :isDisabled="task.isDisabled"
       />
     </div>
     <div :class="$style.hidden" v-else>Tasks are over</div>
@@ -34,6 +37,7 @@ export default {
   data() {
     return {
       text: "",
+      isClick: true,
     };
   },
   mounted() {
@@ -52,12 +56,12 @@ export default {
 <style lang="scss" module>
 @import "@/assets/styles/style";
 .main {
-  padding: 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
   .hidden {
     color: $brown;
     font-size: 1.5rem;
     text-align: center;
-    margin: 0 0 2rem 0;
+    margin: 1rem 0;
   }
   .input {
     width: 100%;
@@ -71,6 +75,7 @@ export default {
     font-size: 1.25rem;
     line-height: 1.75rem;
     color: $brown;
+    margin: 1rem 0 0 0;
     &::placeholder {
       color: $lightOrange;
     }
@@ -81,5 +86,8 @@ export default {
       border-radius: 0.75rem;
     }
   }
+}
+.active {
+  border-radius: 0.75rem 0.75rem 0 0;
 }
 </style>
