@@ -4,7 +4,6 @@
       type="checkbox"
       :class="$style.checkbox"
       :checked="isChecked"
-      :disabled="isDisabled"
       @click="change"
     />
     <span :class="$style.checkboxHidden"></span>
@@ -19,12 +18,12 @@ export default {
     id: String,
     text: String,
     isChecked: Boolean,
-    isDisabled: Boolean,
+    mainId: String,
   },
   methods: {
-    ...mapMutations(["changeCheckboxValue"]),
+    ...mapMutations(["changeSubCheckboxValue"]),
     change() {
-      this.changeCheckboxValue(this.id);
+      this.changeSubCheckboxValue({ id: this.id, mainId: this.mainId });
     },
   },
 };
@@ -71,13 +70,6 @@ export default {
   .checkbox:checked + .checkboxHidden::before {
     opacity: 1;
     background: $orange;
-  }
-  .checkbox:disabled + .checkboxHidden::before {
-    opacity: 0.5;
-    background: $orange;
-  }
-  .checkbox:disabled + .checkboxHidden {
-    border: 0.0625rem solid $orangeDisabled;
   }
 }
 </style>

@@ -24,14 +24,15 @@ export default {
 <style lang="scss">
 @import "@/assets/styles/style.scss";
 .content {
-  height: 100vh;
+  padding: 4rem 0;
+  min-height: 100vh;
   background: linear-gradient(104.11deg, #ff7e5f 14.52%, #feb567 87.26%);
   .boader {
     position: relative;
     z-index: 2;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translate(-50%, 0);
     max-width: 33.75rem;
     background-color: $boaderWhite;
     border: 0.0625rem solid $lightOrange;

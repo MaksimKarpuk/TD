@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.footer">
     <FooterText />
-    <div :class="$style.tabs">
+    <div :class="$style.tabs" data-tabs-e2e>
       <FooterButtons
         v-for="tab in getFooterTabs"
         :key="tab.id"
